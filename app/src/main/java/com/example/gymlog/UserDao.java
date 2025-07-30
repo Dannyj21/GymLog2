@@ -30,4 +30,7 @@ public interface UserDao {
     // Optional: Fetch a user by username
     @Query("SELECT * FROM users WHERE username = :username LIMIT 1")
     LiveData<User> getUserByUsername(String username);
+
+    @Query("SELECT * FROM users WHERE username = :username AND password = :password LIMIT 1")
+    User getUserByCredentials(String username, String password);
 }

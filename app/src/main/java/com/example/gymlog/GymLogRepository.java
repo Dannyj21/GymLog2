@@ -26,22 +26,22 @@ public class GymLogRepository {
         executorService = Executors.newSingleThreadExecutor();
     }
 
-    // Insert a new GymLog
+
     public void insertGymLog(GymLog log) {
         executorService.execute(() -> gymLogDao.insert(log));
     }
 
-    // Fetch all logs for a specific user as LiveData
+
     public LiveData<List<GymLog>> getLogsByUser(int userId) {
         return gymLogDao.getLogsByUser(userId);
     }
 
-    // Optional: Fetch all logs in database
+
     public LiveData<List<GymLog>> getAllLogs() {
         return gymLogDao.getAllLogs();
     }
 
-    // Insert a new user
+
     public void insertUser(User user) {
         executorService.execute(() -> userDao.insert(user));
     }
